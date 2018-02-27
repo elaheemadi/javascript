@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Greg's Gambits | Games Menu</title>
+<link href="greg.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+</head>
+<script>
+var diceTotal1 = 0 ,diceTotal2 = 0;
+var d1 =0 ,d2,d3,d4,diec1,diec2,diec3,diec4,status1,status2;
+function startGame()
+{
+	 diec1=document.getElementById("dice1");
+	 diec2=document.getElementById("dice2");
+	 diec3=document.getElementById("dice3");
+	 diec4=document.getElementById("dice4");
+	 status1 = document.getElementById("status1");
+	 status2 = document.getElementById("status2");
+	
+	
+	 player1();
+	 
+	
+		
+		
+		if(d1 == d2){
+         status1.innerHTML += " DOUBLES! You get a free turn!!";
+		 alert("DOUBLES for Player 1!");
+		  player1();
+		  alert("Player 1----1!");
+          }
+		  
+		  player2();
+		  
+	    if (d3 == d4){
+        status2.innerHTML += " DOUBLES! You get a free turn!!";
+		alert("DOUBLES for 2!");
+		 player2();
+		 alert("Player 2-----2!");
+         }
+		
+		
+			 if (diceTotal1 >= 100){
+				 alert("player 1 is winner!");
+				 resetter();
+			 }
+				 
+				 if (diceTotal2 >= 100){
+				  alert("player2 is winner!");
+				  resetter();
+				  }
+			 
+			 
+}
+      
+	  function player1(){
+		  
+	  d1 = Math.floor(Math.random() * 6) + 1;
+      d2 = Math.floor(Math.random() * 6) + 1;
+	  diceTotal1 = diceTotal1 + (d1 + d2);
+	   dice1.innerHTML = d1;
+         dice2.innerHTML = d2;
+		  status1.innerHTML = "player1 rolled "+diceTotal1+".";
+	  }
+	   function player2(){
+	  
+		 d3 = Math.floor(Math.random() * 6) + 1;
+          d4 = Math.floor(Math.random() * 6) + 1;
+        
+		 diceTotal2 = diceTotal2 +(d3 + d4);
+	    
+	     dice3.innerHTML = d3;
+         dice4.innerHTML = d4;
+		 
+		   status2.innerHTML = "player2 rolled "+diceTotal2+".";
+	   }
+	   
+	 function   resetter(){
+		  alert("Game is over!");
+		 diceTotal1 = 0 ;
+		 diceTotal2 = 0 ;
+		 status2.innerHTML = "player2 rolled "+diceTotal2+"."
+		 status1.innerHTML = "player1 rolled "+diceTotal1+"."
+	 }
+		
+		
+		
+
+
+
+
+
+</script>
+<body>
+<div id="container">
+
+    <img src="images/superhero.jpg" width="120" height="120" class="floatleft" />
+ <h1 id="logo"><em>Play Rolling Dice</em></h1>
+  
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div id="nav">
+  <p><a href="index.html">Home</a>
+  <a href="greg.html">About Greg</a>
+  <a href="play_games.html">Play a Game</a>
+  <a href="sign.html">Sign In</a>
+  <a href="contact.html">Contact Us</a></p>
+</div>
+<div id="content">
+<p><img src ="images/dice.jpg" id="image" /></p>
+<p> </p>
+<table>
+  <tr>
+     </tr>
+  <tr>
+    
+  </tr>
+  <tr>
+  <div class="game1">
+     <button    onclick="startGame(); ">  Start Game</button><br/>
+       </div> <p>&nbsp;</p><p>&nbsp;</p>
+ <dive id="dice1"  class ="dice" > 0 </dive>
+       <dive id="dice2"  class ="dice" > 0 </dive>   <p>&nbsp;&nbsp;&nbsp; </p><h2 >&nbsp&nbsp;&nbsp; Player 1 </h2>
+       <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+       <dive id="dice3"  class ="dice" > 0 </dive>
+       <dive id="dice4"  class ="dice" >  0 </dive>   <p>&nbsp;&nbsp;&nbsp; </p><h2 >&nbsp&nbsp;&nbsp; Player2 </h2>
+       <p>&nbsp;</p>
+       <h2 id="status1"  style="clear:left;"></h2><br /> 
+       <p>&nbsp;</p>
+       <h2 id="status2"  style="clear:left;"></h2> 
+    <dive class="game">
+       <button  onclick="startGame()">Continue</button><br/>
+      </dive><p>&nbsp;</p><p>&nbsp;</p>
+  </tr>
+</table>
+<p>&nbsp;  </p>
+</div>
+<div id="footer">Copyright &copy; 2017 Elahe's Gambits<br />
+<a href="mailto:Elahe Emadi">ellaheemadi9@gmail.com</a></div>
+</div>
+</body>
+</html>

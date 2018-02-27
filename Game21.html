@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Game21</title>
+<link href="greg.css" rel="stylesheet" type="text/css" />
+</head>
+<script>
+//---------------------------------------------------------------------------------------------------------------------------------
+var PlayerPoints=0,DealerPoints=0;
+
+function startGame()
+{
+	
+	var d1=0,d2=0,d3=0,d4=0,s1=0,s2=0;
+	 sum1 =document.getElementById("sum1");
+	 sum2 =document.getElementById("sum2");
+	 card1=document.getElementById("card1");
+	 card2=document.getElementById("card2");
+	 card3=document.getElementById("card3");
+	 card4=document.getElementById("card4");
+	 dp=document.getElementById("dp");
+	 pp=document.getElementById("pp");
+	 status1 = document.getElementById("status1");
+	 status2 = document.getElementById("status2");
+	 status1.innerHTML = "";
+	 d1=creatCard();
+	 d2=creatCard();
+	 d3=creatCard();
+	 d4=creatCard();
+	 
+	 card1.innerHTML=d1;
+	 card2.innerHTML=d2;
+	 card3.innerHTML=d3;
+	// card4.innerHTML=d4;
+	 s2=d3+d4;
+     //sum2.innerHTML=s2;
+	 s1=d1+d2;
+	 sum1.innerHTML=s1;
+	 dp.innerHTML=DealerPoints;
+	 pp.innerHTML=PlayerPoints;
+	
+	 
+	 while((s1<21) && (s2<=21))
+	 {
+	want= prompt("Do you want another card?(y/n)");
+	if (want== 'y')
+	{
+	 d1=creatCard();
+	 s1=s1+d1;
+	 card1.innerHTML=d1;
+	 card2.innerHTML=0;
+	 sum1.innerHTML=s1;
+	 
+	}
+	if (want== 'n')
+	{
+	
+		 break;
+	}
+	 }//while
+//----------------------------------------------------------------------------------------------	
+	 if (((s1<21) && (s1>s2)) && (s2!=21) || (((s1==21) && (s2!=21))) )//if-1
+	 {
+		alert(" player win");
+		  PlayerPoints = PlayerPoints+s1;
+		  status1.innerHTML = "Player win In This Time. The score is "+s1+".";
+		  s1=0;
+		  
+	       
+	 }
+	 
+	  else 
+	  {
+	  if ((((s2<21) && (s2>s1)) && (s1!=21)) || ((s2==21) && (s1!=21))|| ((s2<21) &&(s1>21)))
+	    {
+		alert(" dealer win");
+		  DealerPoints =  DealerPoints +s2;
+		  status1.innerHTML = "Dealer  win In This Time. The score is "+s2+"."
+		  s2=0;
+		  
+	    }
+		   else {
+			   
+		     if((s1==s2) || (s1>21) ||(s2>21)) 
+		     {
+			  status1.innerHTML = "Nobody is win ." 
+			
+		     }
+		   
+		   }
+	  }
+	   
+	 
+	 
+	 if (PlayerPoints >= 200)
+	   {
+		
+		
+		status2.innerHTML = "Congratulation you win . Your point is : "+ PlayerPoints +". and the point of dealer is " + DealerPoints+ "." 
+		alert(" player  win..................................");
+		resetGame();
+			
+		  }
+	   else
+	   {
+		   if (DealerPoints >= 200)
+		   
+		  {
+			 
+		
+		
+		status2.innerHTML = "Dealer win . The point is : "+ DealerPoints +". and the point of Player is " + PlayerPoints+ "."  ;
+		alert(" dealer win........................................");
+		
+		resetGame();
+			
+		  }
+		  
+		  
+	   }
+	  
+//----------------------------------------------------------------------------------------------
+ 	  
+}
+
+function creatCard()
+	{
+   return Math.floor(Math.random()*10+2);
+    }
+	
+	function resetGame ()
+	{
+		status1.innerHTML = "";
+		status2.innerHTML = "";
+		d1=0 ;
+		d2=0;
+		d3=0;
+		d4=0;
+		s1=0;
+		s2=0;
+		card1.innerHTML=d1;
+	    card2.innerHTML=d2;
+	    card3.innerHTML=d3;
+		sum1.innerHTML=s1;
+		sum2.innerHTML=s2;
+		DealerPoints=0;
+		PlayerPoints=0;
+		dp.innerHTML=DealerPoints;
+	    pp.innerHTML=PlayerPoints;
+	}
+//---------------------------------------------------------------------------------------------------------------------------------
+</script>
+
+<body>
+ <div id="container">
+        
+            <img src="images/superhero.jpg" width="120" height="120" class="floatleft" />
+             <h1 id="logo"><em>Play A Game</em></h1>
+              
+            <h2 align="center">Greg's Game of 21</h2>
+             <h2 align="center">Try your luck at 21</h2>
+            
+            <p>&nbsp;</p>
+            <div id="nav">
+              <p><a href="../../index.html">Home</a>
+              <a href="../../greg.html">About Greg</a>
+              <a href="../../play_games.html">Play a Game</a>
+              <a href="../../sign.html">Sign In</a>
+              <a href="../../contact.html">Contact Us</a></p>
+            </div>
+   </div>
+    <div id="content">
+    <p><img src ="images/card.jpg" id="image" /></p>
+               <p> </p>
+<table>
+  
+  <tr>
+  
+   <div class="game1">
+     <button    onclick="startGame(); ">  Start Game</button><br/>
+       </div> <p>&nbsp;</p><p>&nbsp;</p>
+   <dive id="card1"  class ="dice" > 0 </dive>
+   <dive id="card2"  class ="dice" > 0 </dive>   <p>&nbsp;&nbsp;&nbsp;&nbsp; </p><h2>&nbsp&nbsp;&nbsp; Player  </h2>  <dive id="sum1"  class ="dice" > 0 </dive><dive id="pp"  class         ="dice" > 0 </dive>
+       <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+   <dive id="card3"  class ="dice" > 0 </dive>
+   <dive id="card4"  class ="dice" >  ? </dive>   <p>&nbsp;&nbsp;&nbsp;&nbsp; </p><h2>&nbsp&nbsp;&nbsp; Dealer </h2> <dive id="sum2"  class ="dice" > ? </dive><dive id="dp"  class =        "dice" > 0 </dive>
+      <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+       
+       
+       <h2 id="status1"  style="clear:left;"></h2><br /> 
+       <p>&nbsp;</p>
+       <h2 id="status2"  style="clear:left;"></h2> 
+       
+    <dive class="game1">
+       <button  onclick="startGame(); ">Continue</button>
+      </dive>
+    
+  </tr>
+</table>
+            <div id="footer">Copyright &copy; 2017 Elahe's Gambits<br />
+<a href="mailto:Elahe Emadi">ellaheemadi9@gmail.com</a></div>
+            </div>
+     
+ 
+    </body>
+</html>
+
+            
+
+

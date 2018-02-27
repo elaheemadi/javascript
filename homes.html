@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Dwelling Places</title>
+<link href="greg.css" rel="stylesheet" type="text/css" />
+</head>
+<script type="text/javascript">
+function getValue(position)
+{
+	var homechoice = "";
+	if(position == 0)
+	{
+		homechoice = "  Beautiful House";
+	}
+	else if(position == 1)
+	{
+	
+		homechoice = "Cool House";
+	}
+	else
+	{
+	
+		homechoice = "wonderfull House";
+	}
+	
+	var homes = window.opener.parent;
+	{
+		homes.document.getElementById('myhomes').innerHTML = homechoice;
+	}
+	window.close();
+
+}
+</script>
+
+
+<body>
+<table align="center" cellpadding="10px">
+<tr>
+<td align="center">
+<img src="images/treehouse.jpg" alt="Beautiful House" width="100">
+</td>
+<td align="center">
+<img src="images/Tower.jpg" alt="Cool House" width="100">
+</td>
+<td align="center">
+<img src="images/tower2.jpg" alt="wonderfull House" width="100">
+</td>
+</tr>
+<tr>
+<td align="center">
+<input type="button" id="myhomes" value="Beautiful House" onClick="getValue(0);" />
+</td>
+<td align="center">
+<input type="button" id="myhomes" value="Cool House" onClick="getValue(1);" />
+</td>
+<td align="center">
+<input type="button" id="myhomes" value="wonderfull House" onClick="getValue(2);" />
+</td>
+</tr>
+</table> 
+</body>
+</html>

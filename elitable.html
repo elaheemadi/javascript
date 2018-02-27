@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<title>Greg's Gambits | Greg's Tales</title>
+	<link href="greg.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+	function startGame()
+	{
+		var gender = "boy";
+		var city = " ";
+		var tree = " ";
+		var adj = " ";
+		var device = " ";
+		
+		numYears = prompt("Enter a number greater than 0: ");
+		gender = prompt("Is the story about a boy or a girl? ");
+		letter = gender.charAt(0);
+		gender = (letter == "b" || letter == "B")?"boy":"girl";
+		pronoun = (gender == "boy")?"he":"she";
+		name = prompt("Enter the hero's name: ");
+		city = prompt("Enter the kind of tree: ");
+		adj = prompt("Enter an adjective: ");
+		device = prompt("Enter a device you like: ");
+		document.getElementById("content").innerHTML =( "Once upon a time, about " + numYears + " years ago, , there lived a farmer in a village, beside a forest  named "  + name + ". " + name +  "He had a big garden that had an old " + tree + " and other plants, trees and beautiful flowers.</p> <p> When the farmer was a little"  + gender + " , he spent much of his time playing with the " +tree + "tree. Those days, the " + tree + "tree had given the choicest of apples to " + name + ".</p> <p>However, as time passed, the  " + tree + " tree became " + adj + "and stopped bearing fruits.</p> <p>Now that the farmer was not getting any  " + tree + "from the tree," + pronoun + " decided that the tree was useless.Therefore,"  + pronoun + " he decided to cut the tree and use its wood to make some new " + device + " furniture. " + pronoun + " felt that since the tree was old and huge, " + pronoun + "did not have to cure it, and it would make great " + device + " . " + pronoun + " forgot that as a " + gender + " , " + pronoun + " had spent his entire childhood climbing the tree and eating its apples.</p>");
+		}
+	</script>
+	</head>
+	<body>
+		<div id="container">
+		<img src="images/tree.jpg" class="floatleft" />
+		<h1><em>Greg's Tales</em></h1>
+		<h3>For this game, you will create a story by entering words as prompted. The story will change each time you run this game, as you enter different words.</h3>
+		<div id="nav">
+			<p><a href="index.html">Home</a>
+			<a href="greg.html">About Greg</a>
+			<a href="play_games.html">Play a Game</a>
+			<a href="sign.html">Sign In</a>
+			<a href="contact.html">Contact Us</a></p>
+		</div>
+		<div id="content">
+			<p>&nbsp;&nbsp;</p>
+			<input type="button" value = "click to begin" onclick="startGame()" />
+		</div>
+		<div id="footer">Copyright &copy; 2017 Elahe's Gambits<br />
+<a href="mailto:Elahe Emadi">ellaheemadi9@gmail.com</a></div>
+		</div>
+	</body>
+</html>
